@@ -1,0 +1,11 @@
+NAME: hex-paper
+TYPE: TSP
+COMMENT: Taking concorde for a run on a small problem
+DIMENSION: 4
+EDGE_WEIGHT_TYPE: EUC_2D
+NODE_COORD_TYPE: TWOD_COORDS
+NODE_COORD_SECTION:
+0 0.0 0.0
+1 1.0 0.0
+2 0.0 1.0
+3 1.0 1.0
