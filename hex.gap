@@ -6,3 +6,9 @@ a := RootOfDefiningPolynomial(e);
 
 u := [1, 0] * One(e);
 v := [1/2, 1/2*a] * One(e);
+
+ToFloat := function(element)
+  local coefficients;
+  coefficients := ExtRepOfObj(element);
+  return Float(coefficients[1]) + Sqrt(3.0)*Float(coefficients[2]);
+end;
