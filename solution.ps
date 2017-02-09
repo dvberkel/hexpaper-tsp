@@ -5,14 +5,22 @@
 save /cleanslate exch def
 %%EndProlog
 %%BeginSetup
+/dot-radius 2 def
+
+/dot {
+    2 copy
+    exch dot-radius add exch
+    moveto
+    dot-radius 0 360 arc
+} def
 %%EndSetup
 %%Page: lattice 1
 %%BeginPageSetup
 %%EndPageSetup
 72 25.4 div dup scale
-0 0 moveto
 
-210 297 lineto
+10 10 dot
+20 20 dot
 
 stroke
 showpage
