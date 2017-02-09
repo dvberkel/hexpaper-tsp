@@ -23,7 +23,7 @@ for a in [-n..n] do
         norm := ToFloat(w * w);
         if norm <= radius^2 then
            w := scale * w;
-           Print("[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
+           Print("\t[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
         fi;
     od;
 od;
