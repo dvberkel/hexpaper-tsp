@@ -13,17 +13,28 @@ ToFloat := function(element)
   return Float(coefficients[1]) + Sqrt(3.0)*Float(coefficients[2]);
 end;
 
+psFile := "data.ps";
+
+PrintToPS := function(index, element)
+  AppendTo(psFile, "\t[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n"); 
+end;
+
 scale := 10;
 n := 5;
 radius := 4.0;
 
+PrintTo(psFile);
+
+index := 0;
 for a in [-n..n] do
     for b in [-n..n] do
         w := (a*u + b*v);
         norm := ToFloat(w * w);
         if norm <= radius^2 then
            w := scale * w;
-           Print("\t[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
+           Print(w, "\n");
+           PrintToPS(index, w);
+           index := index + 1;
         fi;
     od;
 od;
