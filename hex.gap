@@ -14,10 +14,16 @@ ToFloat := function(element)
 end;
 
 scale := 10;
+n := 5;
+radius := 4.0;
 
-for a in [-5..5] do
-    for b in [-5..5] do
-        w := scale* (a*u + b*v);
-        Print("[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
+for a in [-n..n] do
+    for b in [-n..n] do
+        w := (a*u + b*v);
+        norm := ToFloat(w * w);
+        if norm <= radius^2 then
+           w := scale * w;
+           Print("[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
+        fi;
     od;
 od;
