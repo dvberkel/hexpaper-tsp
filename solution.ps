@@ -19,8 +19,19 @@ save /cleanslate exch def
 %%EndPageSetup
 72 25.4 div dup scale
 
-10 10 dot
-20 20 dot
+210 2 div 297 2 div translate
+
+[
+    [10 10]
+    [20 20]
+    [30 30]
+    [10 30]
+]
+{
+    aload pop
+    dot
+}
+forall
 
 stroke
 showpage
