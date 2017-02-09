@@ -16,12 +16,7 @@ save /cleanslate exch def
 %%EndSetup
 %%Page: lattice 1
 %%BeginPageSetup
-%%EndPageSetup
-72 25.4 div dup scale
-
-210 2 div 297 2 div translate
-
-[
+/points [
 [-40 0]
 [-35 8.660254037844386]
 [-30 17.32050807568877]
@@ -83,9 +78,13 @@ save /cleanslate exch def
 [30 -17.32050807568877]
 [35 -8.660254037844386]
 [40 0]
+] def
+%%EndPageSetup
+72 25.4 div dup scale
 
-]
-{
+210 2 div 297 2 div translate
+
+points {
     aload pop
     dot
 }
