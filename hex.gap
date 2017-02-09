@@ -12,3 +12,10 @@ ToFloat := function(element)
   coefficients := ExtRepOfObj(element);
   return Float(coefficients[1]) + Sqrt(3.0)*Float(coefficients[2]);
 end;
+
+for a in [-5..5] do
+    for b in [-5..5] do
+        w := a*u + b*v;
+        Print(w, "\n");
+    od;
+od;
