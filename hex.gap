@@ -13,9 +13,11 @@ ToFloat := function(element)
   return Float(coefficients[1]) + Sqrt(3.0)*Float(coefficients[2]);
 end;
 
+scale := 10;
+
 for a in [-5..5] do
     for b in [-5..5] do
-        w := a*u + b*v;
-        Print(w, "\n");
+        w := scale* (a*u + b*v);
+        Print("[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n");
     od;
 od;
