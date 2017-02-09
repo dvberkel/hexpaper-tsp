@@ -4,8 +4,14 @@ p := x^2-3;
 e := AlgebraicExtension(Rationals, p);
 a := RootOfDefiningPolynomial(e);
 
-u := [1, 0] * One(e);
-v := [1/2, 1/2*a] * One(e);
+b1 := [1, 0] * One(e);
+b2 := [1/2, 1/2*a] * One(e);
+
+s := [-1/2, 1/2*a] * One(e);
+t := [-1/2, -1/2*a] * One(e);
+
+u := s - b1;
+v := t - b1;
 
 ToFloat := function(element)
   local coefficients;
@@ -19,26 +25,30 @@ radius := 4.0;
 
 points := [];
 for a in [-n..n] do
-    for b in [-n..n] do
-        w := (a*u + b*v);
-        norm := ToFloat(w * w);
-        if norm <= radius^2 then
-           w := scale * w;
-           Add(points, w);
-        fi;
+  for b in [-n..n] do
+    for c in [b1, b2] do
+      w := (a*u + b*v) + c;
+      norm := ToFloat(w * w);
+      if norm <= radius^2 then
+        w := scale * w;
+        Add(points, w);
+      fi;
     od;
+  od;
 od;
 
-psFile := "data.ps";
+PrintToConsole := function(index, element)
+  Print(element, "\n");
+end;
 
+psFile := "data.ps";
 PrintToPS := function(index, element)
-  AppendTo(psFile, "\t[", ToFloat(w[1]), " ", ToFloat(w[2]), "]\n"); 
+  AppendTo(psFile, "\t[", ToFloat(element[1]), " ", ToFloat(element[2]), "]\n"); 
 end;
 
 tspFile := "data.tsp";
-
 PrintToTSP := function(index, element)
-  AppendTo(tspFile, index, " ", ToFloat(w[1]), " ", ToFloat(w[2]), "\n");
+  AppendTo(tspFile, index, " ", ToFloat(element[1]), " ", ToFloat(element[2]), "\n");
 end;
 
 header := "NAME: hex-paper\n\
@@ -49,14 +59,12 @@ EDGE_WEIGHT_TYPE: EUC_2D\n\
 NODE_COORD_TYPE: TWOD_COORDS\n\
 NODE_COORD_SECTION:\n";
  
-Print(header);
-
 PrintTo(psFile);
 PrintTo(tspFile, header);
 
 index := 0;
 for w in points do
-  Print(w, "\n");
+  PrintToConsole(index, w);
   PrintToPS(index, w);
   PrintToTSP(index, w);
   index := index + 1;
