@@ -1,0 +1,31 @@
+] def
+
+%%EndPageSetup
+72 25.4 div dup scale
+
+210 2 div 297 2 div translate
+
+points tour 0 get get aload pop moveto
+tour {
+/index exch def
+points index get
+aload pop
+lineto
+} forall
+
+closepath
+stroke
+
+newpath
+
+points {
+aload pop
+dot
+} forall
+
+stroke
+showpage
+%%PageTrailer
+%%Trailer
+cleanslate restore
+%%EOF
