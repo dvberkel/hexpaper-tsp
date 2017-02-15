@@ -51,13 +51,13 @@ PrintToTSP := function(index, element)
   AppendTo(tspFile, index, " ", ToFloat(element[1]), " ", ToFloat(element[2]), "\n");
 end;
 
-header := "NAME: hex-paper\n\
+header := Concatenation("NAME: hex-paper\n\
 TYPE: TSP\n\
 COMMENT: Taking concorde for a run on a small problem\n\
-DIMENSION: 4\n\
+DIMENSION: ", String(Length(points)), "\n\
 EDGE_WEIGHT_TYPE: EUC_2D\n\
 NODE_COORD_TYPE: TWOD_COORDS\n\
-NODE_COORD_SECTION:\n";
+NODE_COORD_SECTION:\n");
  
 PrintTo(psFile);
 PrintTo(tspFile, header);
