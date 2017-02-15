@@ -17,5 +17,10 @@ With the `concorde` executable in your path, run
 concorde data.tsp
 ```
 
-to create a `data.sol` file. Use `data.ps` and `data.sol` to update the
-`solution.ps` which will draw a nice picture of the tour.
+to update the `solutions.ps` execute
+
+```shell
+./concatenate.sh > solutions.ps
+```
+
+which will draw a nice picture of the tour.
