@@ -19,9 +19,9 @@ ToFloat := function(element)
   return Float(coefficients[1]) + Sqrt(3.0)*Float(coefficients[2]);
 end;
 
-scale := 10;
-n := 5;
-radius := 4.0;
+scale := 4;
+n := 3;
+radius := 2*Ceil(n/2.0);
 
 points := [];
 for a in [-n..n] do
